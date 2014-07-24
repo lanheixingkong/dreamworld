@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakala.emall.weixin.db.mysql.manager.OpenidPsamMapper" >
+  <resultMap id="BaseResultMap" type="com.lakala.emall.weixin.db.mysql.entity.OpenidPsam" >
+    <id column="openid_psam_id" property="openidPsamId" jdbcType="INTEGER" />
+    <result column="op_psam" property="opPsam" jdbcType="VARCHAR" />
+    <result column="op_openid" property="opOpenid" jdbcType="VARCHAR" />
+    <result column="op_gem_code" property="opGemCode" jdbcType="VARCHAR" />
+    <result column="op_create_time" property="opCreateTime" jdbcType="TIMESTAMP" />
+    <result column="op_update_time" property="opUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="op_invalid_time" property="opInvalidTime" jdbcType="TIMESTAMP" />
+    <result column="op_status" property="opStatus" jdbcType="CHAR" />
+    <result column="op_type" property="opType" jdbcType="CHAR" />
+    <result column="op_gem_code_status" property="opGemCodeStatus" jdbcType="CHAR" />
+    <result column="op_gem_grade" property="opGemGrade" jdbcType="CHAR" />
+    <result column="qq_code" property="qqCode" jdbcType="VARCHAR" />
+    <result column="other_one" property="otherOne" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    openid_psam_id, op_psam, op_openid, op_gem_code, op_create_time, op_update_time, 
+    op_invalid_time, op_status, op_type, op_gem_code_status, op_gem_grade, qq_code, other_one
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsamExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from weixin_openid_psam
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>=0" >
+      limit #{limitStart} , #{limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from weixin_openid_psam
+    where openid_psam_id = #{openidPsamId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from weixin_openid_psam
+    where openid_psam_id = #{openidPsamId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsamExample" >
+    delete from weixin_openid_psam
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsam" >
+    <selectKey resultType="java.lang.Integer" keyProperty="openidPsamId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into weixin_openid_psam (op_psam, op_openid, op_gem_code, 
+      op_create_time, op_update_time, op_invalid_time, 
+      op_status, op_type, op_gem_code_status, 
+      op_gem_grade, qq_code, other_one
+      )
+    values (#{opPsam,jdbcType=VARCHAR}, #{opOpenid,jdbcType=VARCHAR}, #{opGemCode,jdbcType=VARCHAR}, 
+      #{opCreateTime,jdbcType=TIMESTAMP}, #{opUpdateTime,jdbcType=TIMESTAMP}, #{opInvalidTime,jdbcType=TIMESTAMP}, 
+      #{opStatus,jdbcType=CHAR}, #{opType,jdbcType=CHAR}, #{opGemCodeStatus,jdbcType=CHAR}, 
+      #{opGemGrade,jdbcType=CHAR}, #{qqCode,jdbcType=VARCHAR}, #{otherOne,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsam" >
+    <selectKey resultType="java.lang.Integer" keyProperty="openidPsamId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into weixin_openid_psam
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="opPsam != null" >
+        op_psam,
+      </if>
+      <if test="opOpenid != null" >
+        op_openid,
+      </if>
+      <if test="opGemCode != null" >
+        op_gem_code,
+      </if>
+      <if test="opCreateTime != null" >
+        op_create_time,
+      </if>
+      <if test="opUpdateTime != null" >
+        op_update_time,
+      </if>
+      <if test="opInvalidTime != null" >
+        op_invalid_time,
+      </if>
+      <if test="opStatus != null" >
+        op_status,
+      </if>
+      <if test="opType != null" >
+        op_type,
+      </if>
+      <if test="opGemCodeStatus != null" >
+        op_gem_code_status,
+      </if>
+      <if test="opGemGrade != null" >
+        op_gem_grade,
+      </if>
+      <if test="qqCode != null" >
+        qq_code,
+      </if>
+      <if test="otherOne != null" >
+        other_one,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="opPsam != null" >
+        #{opPsam,jdbcType=VARCHAR},
+      </if>
+      <if test="opOpenid != null" >
+        #{opOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="opGemCode != null" >
+        #{opGemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="opCreateTime != null" >
+        #{opCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opUpdateTime != null" >
+        #{opUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opInvalidTime != null" >
+        #{opInvalidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opStatus != null" >
+        #{opStatus,jdbcType=CHAR},
+      </if>
+      <if test="opType != null" >
+        #{opType,jdbcType=CHAR},
+      </if>
+      <if test="opGemCodeStatus != null" >
+        #{opGemCodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="opGemGrade != null" >
+        #{opGemGrade,jdbcType=CHAR},
+      </if>
+      <if test="qqCode != null" >
+        #{qqCode,jdbcType=VARCHAR},
+      </if>
+      <if test="otherOne != null" >
+        #{otherOne,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsamExample" resultType="java.lang.Integer" >
+    select count(*) from weixin_openid_psam
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update weixin_openid_psam
+    <set >
+      <if test="record.openidPsamId != null" >
+        openid_psam_id = #{record.openidPsamId,jdbcType=INTEGER},
+      </if>
+      <if test="record.opPsam != null" >
+        op_psam = #{record.opPsam,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opOpenid != null" >
+        op_openid = #{record.opOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opGemCode != null" >
+        op_gem_code = #{record.opGemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opCreateTime != null" >
+        op_create_time = #{record.opCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.opUpdateTime != null" >
+        op_update_time = #{record.opUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.opInvalidTime != null" >
+        op_invalid_time = #{record.opInvalidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.opStatus != null" >
+        op_status = #{record.opStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.opType != null" >
+        op_type = #{record.opType,jdbcType=CHAR},
+      </if>
+      <if test="record.opGemCodeStatus != null" >
+        op_gem_code_status = #{record.opGemCodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.opGemGrade != null" >
+        op_gem_grade = #{record.opGemGrade,jdbcType=CHAR},
+      </if>
+      <if test="record.qqCode != null" >
+        qq_code = #{record.qqCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.otherOne != null" >
+        other_one = #{record.otherOne,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update weixin_openid_psam
+    set openid_psam_id = #{record.openidPsamId,jdbcType=INTEGER},
+      op_psam = #{record.opPsam,jdbcType=VARCHAR},
+      op_openid = #{record.opOpenid,jdbcType=VARCHAR},
+      op_gem_code = #{record.opGemCode,jdbcType=VARCHAR},
+      op_create_time = #{record.opCreateTime,jdbcType=TIMESTAMP},
+      op_update_time = #{record.opUpdateTime,jdbcType=TIMESTAMP},
+      op_invalid_time = #{record.opInvalidTime,jdbcType=TIMESTAMP},
+      op_status = #{record.opStatus,jdbcType=CHAR},
+      op_type = #{record.opType,jdbcType=CHAR},
+      op_gem_code_status = #{record.opGemCodeStatus,jdbcType=CHAR},
+      op_gem_grade = #{record.opGemGrade,jdbcType=CHAR},
+      qq_code = #{record.qqCode,jdbcType=VARCHAR},
+      other_one = #{record.otherOne,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsam" >
+    update weixin_openid_psam
+    <set >
+      <if test="opPsam != null" >
+        op_psam = #{opPsam,jdbcType=VARCHAR},
+      </if>
+      <if test="opOpenid != null" >
+        op_openid = #{opOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="opGemCode != null" >
+        op_gem_code = #{opGemCode,jdbcType=VARCHAR},
+      </if>
+      <if test="opCreateTime != null" >
+        op_create_time = #{opCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opUpdateTime != null" >
+        op_update_time = #{opUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opInvalidTime != null" >
+        op_invalid_time = #{opInvalidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="opStatus != null" >
+        op_status = #{opStatus,jdbcType=CHAR},
+      </if>
+      <if test="opType != null" >
+        op_type = #{opType,jdbcType=CHAR},
+      </if>
+      <if test="opGemCodeStatus != null" >
+        op_gem_code_status = #{opGemCodeStatus,jdbcType=CHAR},
+      </if>
+      <if test="opGemGrade != null" >
+        op_gem_grade = #{opGemGrade,jdbcType=CHAR},
+      </if>
+      <if test="qqCode != null" >
+        qq_code = #{qqCode,jdbcType=VARCHAR},
+      </if>
+      <if test="otherOne != null" >
+        other_one = #{otherOne,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where openid_psam_id = #{openidPsamId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsam" >
+    update weixin_openid_psam
+    set op_psam = #{opPsam,jdbcType=VARCHAR},
+      op_openid = #{opOpenid,jdbcType=VARCHAR},
+      op_gem_code = #{opGemCode,jdbcType=VARCHAR},
+      op_create_time = #{opCreateTime,jdbcType=TIMESTAMP},
+      op_update_time = #{opUpdateTime,jdbcType=TIMESTAMP},
+      op_invalid_time = #{opInvalidTime,jdbcType=TIMESTAMP},
+      op_status = #{opStatus,jdbcType=CHAR},
+      op_type = #{opType,jdbcType=CHAR},
+      op_gem_code_status = #{opGemCodeStatus,jdbcType=CHAR},
+      op_gem_grade = #{opGemGrade,jdbcType=CHAR},
+      qq_code = #{qqCode,jdbcType=VARCHAR},
+      other_one = #{otherOne,jdbcType=VARCHAR}
+    where openid_psam_id = #{openidPsamId,jdbcType=INTEGER}
+  </update>
+</mapper>

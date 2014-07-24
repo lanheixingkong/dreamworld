@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakala.emall.weixin.db.mysql.manager.TermDeviceMapper" >
+  <resultMap id="BaseResultMap" type="com.lakala.emall.weixin.db.mysql.entity.TermDevice" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="device_code" property="deviceCode" jdbcType="VARCHAR" />
+    <result column="device_erp_code" property="deviceErpCode" jdbcType="VARCHAR" />
+    <result column="t_code" property="tCode" jdbcType="VARCHAR" />
+    <result column="psam" property="psam" jdbcType="VARCHAR" />
+    <result column="net_no" property="netNo" jdbcType="VARCHAR" />
+    <result column="t_no" property="tNo" jdbcType="VARCHAR" />
+    <result column="t_ext" property="tExt" jdbcType="VARCHAR" />
+    <result column="platform" property="platform" jdbcType="VARCHAR" />
+    <result column="open_date" property="openDate" jdbcType="VARCHAR" />
+    <result column="close_date" property="closeDate" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="machine_factory" property="machineFactory" jdbcType="VARCHAR" />
+    <result column="machine_kind" property="machineKind" jdbcType="VARCHAR" />
+    <result column="has_chassis" property="hasChassis" jdbcType="VARCHAR" />
+    <result column="chassis_kind" property="chassisKind" jdbcType="VARCHAR" />
+    <result column="has_screen" property="hasScreen" jdbcType="VARCHAR" />
+    <result column="screen_kind" property="screenKind" jdbcType="VARCHAR" />
+    <result column="menu_ver" property="menuVer" jdbcType="VARCHAR" />
+    <result column="ts_up" property="tsUp" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, device_code, device_erp_code, t_code, psam, net_no, t_no, t_ext, platform, open_date, 
+    close_date, state, machine_factory, machine_kind, has_chassis, chassis_kind, has_screen, 
+    screen_kind, menu_ver, ts_up
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakala.emall.weixin.db.mysql.entity.TermDeviceExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from sdb_term_device
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>=0" >
+      limit #{limitStart} , #{limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sdb_term_device
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sdb_term_device
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.TermDeviceExample" >
+    delete from sdb_term_device
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lakala.emall.weixin.db.mysql.entity.TermDevice" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sdb_term_device (device_code, device_erp_code, t_code, 
+      psam, net_no, t_no, t_ext, 
+      platform, open_date, close_date, 
+      state, machine_factory, machine_kind, 
+      has_chassis, chassis_kind, has_screen, 
+      screen_kind, menu_ver, ts_up
+      )
+    values (#{deviceCode,jdbcType=VARCHAR}, #{deviceErpCode,jdbcType=VARCHAR}, #{tCode,jdbcType=VARCHAR}, 
+      #{psam,jdbcType=VARCHAR}, #{netNo,jdbcType=VARCHAR}, #{tNo,jdbcType=VARCHAR}, #{tExt,jdbcType=VARCHAR}, 
+      #{platform,jdbcType=VARCHAR}, #{openDate,jdbcType=VARCHAR}, #{closeDate,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR}, #{machineFactory,jdbcType=VARCHAR}, #{machineKind,jdbcType=VARCHAR}, 
+      #{hasChassis,jdbcType=VARCHAR}, #{chassisKind,jdbcType=VARCHAR}, #{hasScreen,jdbcType=VARCHAR}, 
+      #{screenKind,jdbcType=VARCHAR}, #{menuVer,jdbcType=VARCHAR}, #{tsUp,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.TermDevice" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sdb_term_device
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="deviceCode != null" >
+        device_code,
+      </if>
+      <if test="deviceErpCode != null" >
+        device_erp_code,
+      </if>
+      <if test="tCode != null" >
+        t_code,
+      </if>
+      <if test="psam != null" >
+        psam,
+      </if>
+      <if test="netNo != null" >
+        net_no,
+      </if>
+      <if test="tNo != null" >
+        t_no,
+      </if>
+      <if test="tExt != null" >
+        t_ext,
+      </if>
+      <if test="platform != null" >
+        platform,
+      </if>
+      <if test="openDate != null" >
+        open_date,
+      </if>
+      <if test="closeDate != null" >
+        close_date,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="machineFactory != null" >
+        machine_factory,
+      </if>
+      <if test="machineKind != null" >
+        machine_kind,
+      </if>
+      <if test="hasChassis != null" >
+        has_chassis,
+      </if>
+      <if test="chassisKind != null" >
+        chassis_kind,
+      </if>
+      <if test="hasScreen != null" >
+        has_screen,
+      </if>
+      <if test="screenKind != null" >
+        screen_kind,
+      </if>
+      <if test="menuVer != null" >
+        menu_ver,
+      </if>
+      <if test="tsUp != null" >
+        ts_up,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="deviceCode != null" >
+        #{deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceErpCode != null" >
+        #{deviceErpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tCode != null" >
+        #{tCode,jdbcType=VARCHAR},
+      </if>
+      <if test="psam != null" >
+        #{psam,jdbcType=VARCHAR},
+      </if>
+      <if test="netNo != null" >
+        #{netNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tNo != null" >
+        #{tNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tExt != null" >
+        #{tExt,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null" >
+        #{openDate,jdbcType=VARCHAR},
+      </if>
+      <if test="closeDate != null" >
+        #{closeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="machineFactory != null" >
+        #{machineFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="machineKind != null" >
+        #{machineKind,jdbcType=VARCHAR},
+      </if>
+      <if test="hasChassis != null" >
+        #{hasChassis,jdbcType=VARCHAR},
+      </if>
+      <if test="chassisKind != null" >
+        #{chassisKind,jdbcType=VARCHAR},
+      </if>
+      <if test="hasScreen != null" >
+        #{hasScreen,jdbcType=VARCHAR},
+      </if>
+      <if test="screenKind != null" >
+        #{screenKind,jdbcType=VARCHAR},
+      </if>
+      <if test="menuVer != null" >
+        #{menuVer,jdbcType=VARCHAR},
+      </if>
+      <if test="tsUp != null" >
+        #{tsUp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.TermDeviceExample" resultType="java.lang.Integer" >
+    select count(*) from sdb_term_device
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sdb_term_device
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.deviceCode != null" >
+        device_code = #{record.deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deviceErpCode != null" >
+        device_erp_code = #{record.deviceErpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tCode != null" >
+        t_code = #{record.tCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.psam != null" >
+        psam = #{record.psam,jdbcType=VARCHAR},
+      </if>
+      <if test="record.netNo != null" >
+        net_no = #{record.netNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tNo != null" >
+        t_no = #{record.tNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tExt != null" >
+        t_ext = #{record.tExt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.platform != null" >
+        platform = #{record.platform,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openDate != null" >
+        open_date = #{record.openDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.closeDate != null" >
+        close_date = #{record.closeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineFactory != null" >
+        machine_factory = #{record.machineFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machineKind != null" >
+        machine_kind = #{record.machineKind,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasChassis != null" >
+        has_chassis = #{record.hasChassis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chassisKind != null" >
+        chassis_kind = #{record.chassisKind,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasScreen != null" >
+        has_screen = #{record.hasScreen,jdbcType=VARCHAR},
+      </if>
+      <if test="record.screenKind != null" >
+        screen_kind = #{record.screenKind,jdbcType=VARCHAR},
+      </if>
+      <if test="record.menuVer != null" >
+        menu_ver = #{record.menuVer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tsUp != null" >
+        ts_up = #{record.tsUp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sdb_term_device
+    set id = #{record.id,jdbcType=INTEGER},
+      device_code = #{record.deviceCode,jdbcType=VARCHAR},
+      device_erp_code = #{record.deviceErpCode,jdbcType=VARCHAR},
+      t_code = #{record.tCode,jdbcType=VARCHAR},
+      psam = #{record.psam,jdbcType=VARCHAR},
+      net_no = #{record.netNo,jdbcType=VARCHAR},
+      t_no = #{record.tNo,jdbcType=VARCHAR},
+      t_ext = #{record.tExt,jdbcType=VARCHAR},
+      platform = #{record.platform,jdbcType=VARCHAR},
+      open_date = #{record.openDate,jdbcType=VARCHAR},
+      close_date = #{record.closeDate,jdbcType=VARCHAR},
+      state = #{record.state,jdbcType=VARCHAR},
+      machine_factory = #{record.machineFactory,jdbcType=VARCHAR},
+      machine_kind = #{record.machineKind,jdbcType=VARCHAR},
+      has_chassis = #{record.hasChassis,jdbcType=VARCHAR},
+      chassis_kind = #{record.chassisKind,jdbcType=VARCHAR},
+      has_screen = #{record.hasScreen,jdbcType=VARCHAR},
+      screen_kind = #{record.screenKind,jdbcType=VARCHAR},
+      menu_ver = #{record.menuVer,jdbcType=VARCHAR},
+      ts_up = #{record.tsUp,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.TermDevice" >
+    update sdb_term_device
+    <set >
+      <if test="deviceCode != null" >
+        device_code = #{deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceErpCode != null" >
+        device_erp_code = #{deviceErpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tCode != null" >
+        t_code = #{tCode,jdbcType=VARCHAR},
+      </if>
+      <if test="psam != null" >
+        psam = #{psam,jdbcType=VARCHAR},
+      </if>
+      <if test="netNo != null" >
+        net_no = #{netNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tNo != null" >
+        t_no = #{tNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tExt != null" >
+        t_ext = #{tExt,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null" >
+        platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="openDate != null" >
+        open_date = #{openDate,jdbcType=VARCHAR},
+      </if>
+      <if test="closeDate != null" >
+        close_date = #{closeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="machineFactory != null" >
+        machine_factory = #{machineFactory,jdbcType=VARCHAR},
+      </if>
+      <if test="machineKind != null" >
+        machine_kind = #{machineKind,jdbcType=VARCHAR},
+      </if>
+      <if test="hasChassis != null" >
+        has_chassis = #{hasChassis,jdbcType=VARCHAR},
+      </if>
+      <if test="chassisKind != null" >
+        chassis_kind = #{chassisKind,jdbcType=VARCHAR},
+      </if>
+      <if test="hasScreen != null" >
+        has_screen = #{hasScreen,jdbcType=VARCHAR},
+      </if>
+      <if test="screenKind != null" >
+        screen_kind = #{screenKind,jdbcType=VARCHAR},
+      </if>
+      <if test="menuVer != null" >
+        menu_ver = #{menuVer,jdbcType=VARCHAR},
+      </if>
+      <if test="tsUp != null" >
+        ts_up = #{tsUp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lakala.emall.weixin.db.mysql.entity.TermDevice" >
+    update sdb_term_device
+    set device_code = #{deviceCode,jdbcType=VARCHAR},
+      device_erp_code = #{deviceErpCode,jdbcType=VARCHAR},
+      t_code = #{tCode,jdbcType=VARCHAR},
+      psam = #{psam,jdbcType=VARCHAR},
+      net_no = #{netNo,jdbcType=VARCHAR},
+      t_no = #{tNo,jdbcType=VARCHAR},
+      t_ext = #{tExt,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=VARCHAR},
+      open_date = #{openDate,jdbcType=VARCHAR},
+      close_date = #{closeDate,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      machine_factory = #{machineFactory,jdbcType=VARCHAR},
+      machine_kind = #{machineKind,jdbcType=VARCHAR},
+      has_chassis = #{hasChassis,jdbcType=VARCHAR},
+      chassis_kind = #{chassisKind,jdbcType=VARCHAR},
+      has_screen = #{hasScreen,jdbcType=VARCHAR},
+      screen_kind = #{screenKind,jdbcType=VARCHAR},
+      menu_ver = #{menuVer,jdbcType=VARCHAR},
+      ts_up = #{tsUp,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

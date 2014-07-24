@@ -1,0 +1,1546 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakala.emall.weixin.db.mysql.manager.B2cOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.lakala.emall.weixin.db.mysql.entity.B2cOrder" >
+    <id column="order_id" property="orderId" jdbcType="BIGINT" />
+    <result column="net_no" property="netNo" jdbcType="VARCHAR" />
+    <result column="gysids" property="gysids" jdbcType="VARCHAR" />
+    <result column="gys_name" property="gysName" jdbcType="VARCHAR" />
+    <result column="psam" property="psam" jdbcType="VARCHAR" />
+    <result column="billno" property="billno" jdbcType="VARCHAR" />
+    <result column="pay_time" property="payTime" jdbcType="VARCHAR" />
+    <result column="total_amount" property="totalAmount" jdbcType="DECIMAL" />
+    <result column="final_amount" property="finalAmount" jdbcType="DECIMAL" />
+    <result column="pay_status" property="payStatus" jdbcType="CHAR" />
+    <result column="quhuotime" property="quhuotime" jdbcType="VARCHAR" />
+    <result column="daohuotime" property="daohuotime" jdbcType="VARCHAR" />
+    <result column="isqianshou" property="isqianshou" jdbcType="VARCHAR" />
+    <result column="isdaohuo" property="isdaohuo" jdbcType="VARCHAR" />
+    <result column="ship_status" property="shipStatus" jdbcType="CHAR" />
+    <result column="arrival_status" property="arrivalStatus" jdbcType="CHAR" />
+    <result column="recevice_status" property="receviceStatus" jdbcType="CHAR" />
+    <result column="is_delivery" property="isDelivery" jdbcType="CHAR" />
+    <result column="createtime" property="createtime" jdbcType="BIGINT" />
+    <result column="last_modified" property="lastModified" jdbcType="BIGINT" />
+    <result column="payment" property="payment" jdbcType="VARCHAR" />
+    <result column="shipping_id" property="shippingId" jdbcType="INTEGER" />
+    <result column="shipping" property="shipping" jdbcType="VARCHAR" />
+    <result column="member_id" property="memberId" jdbcType="INTEGER" />
+    <result column="member_name" property="memberName" jdbcType="VARCHAR" />
+    <result column="member_id_card" property="memberIdCard" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="is_dead" property="isDead" jdbcType="CHAR" />
+    <result column="confirm" property="confirm" jdbcType="CHAR" />
+    <result column="ship_area" property="shipArea" jdbcType="VARCHAR" />
+    <result column="ship_name" property="shipName" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="DECIMAL" />
+    <result column="itemnum" property="itemnum" jdbcType="INTEGER" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="ship_zip" property="shipZip" jdbcType="VARCHAR" />
+    <result column="ship_tel" property="shipTel" jdbcType="VARCHAR" />
+    <result column="ship_email" property="shipEmail" jdbcType="VARCHAR" />
+    <result column="ship_time" property="shipTime" jdbcType="VARCHAR" />
+    <result column="ship_mobile" property="shipMobile" jdbcType="VARCHAR" />
+    <result column="cost_item" property="costItem" jdbcType="DECIMAL" />
+    <result column="is_tax" property="isTax" jdbcType="CHAR" />
+    <result column="cost_tax" property="costTax" jdbcType="DECIMAL" />
+    <result column="tax_company" property="taxCompany" jdbcType="VARCHAR" />
+    <result column="is_protect" property="isProtect" jdbcType="CHAR" />
+    <result column="cost_protect" property="costProtect" jdbcType="DECIMAL" />
+    <result column="cost_payment" property="costPayment" jdbcType="DECIMAL" />
+    <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="cur_rate" property="curRate" jdbcType="DECIMAL" />
+    <result column="score_u" property="scoreU" jdbcType="DECIMAL" />
+    <result column="score_g" property="scoreG" jdbcType="DECIMAL" />
+    <result column="discount" property="discount" jdbcType="DECIMAL" />
+    <result column="pmt_goods" property="pmtGoods" jdbcType="DECIMAL" />
+    <result column="pmt_order" property="pmtOrder" jdbcType="DECIMAL" />
+    <result column="payed" property="payed" jdbcType="DECIMAL" />
+    <result column="disabled" property="disabled" jdbcType="CHAR" />
+    <result column="mark_type" property="markType" jdbcType="VARCHAR" />
+    <result column="cost_freight" property="costFreight" jdbcType="DECIMAL" />
+    <result column="extend" property="extend" jdbcType="VARCHAR" />
+    <result column="order_refer" property="orderRefer" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="CHAR" />
+    <result column="bill_settle_status" property="billSettleStatus" jdbcType="CHAR" />
+    <result column="bill_settle_msg" property="billSettleMsg" jdbcType="VARCHAR" />
+    <result column="channel_source" property="channelSource" jdbcType="CHAR" />
+    <result column="channel_type" property="channelType" jdbcType="CHAR" />
+    <result column="os" property="os" jdbcType="CHAR" />
+    <result column="sid" property="sid" jdbcType="VARCHAR" />
+    <result column="netid" property="netid" jdbcType="VARCHAR" />
+    <result column="terminalno" property="terminalno" jdbcType="VARCHAR" />
+    <result column="paymentseri" property="paymentseri" jdbcType="VARCHAR" />
+    <result column="billid" property="billid" jdbcType="VARCHAR" />
+    <result column="is_fenrun" property="isFenrun" jdbcType="CHAR" />
+    <result column="is_remoney" property="isRemoney" jdbcType="CHAR" />
+    <result column="re_amount" property="reAmount" jdbcType="DECIMAL" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.lakala.emall.weixin.db.mysql.entity.B2cOrderWithBLOBs" extends="BaseResultMap" >
+    <result column="tostr" property="tostr" jdbcType="LONGVARCHAR" />
+    <result column="ship_addr" property="shipAddr" jdbcType="LONGVARCHAR" />
+    <result column="memo" property="memo" jdbcType="LONGVARCHAR" />
+    <result column="mark_text" property="markText" jdbcType="LONGVARCHAR" />
+    <result column="addon" property="addon" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    order_id, net_no, gysids, gys_name, psam, billno, pay_time, total_amount, final_amount, 
+    pay_status, quhuotime, daohuotime, isqianshou, isdaohuo, ship_status, arrival_status, 
+    recevice_status, is_delivery, createtime, last_modified, payment, shipping_id, shipping, 
+    member_id, member_name, member_id_card, status, is_dead, confirm, ship_area, ship_name, 
+    weight, itemnum, ip, ship_zip, ship_tel, ship_email, ship_time, ship_mobile, cost_item, 
+    is_tax, cost_tax, tax_company, is_protect, cost_protect, cost_payment, currency, 
+    cur_rate, score_u, score_g, discount, pmt_goods, pmt_order, payed, disabled, mark_type, 
+    cost_freight, extend, order_refer, source, bill_settle_status, bill_settle_msg, channel_source, 
+    channel_type, os, sid, netid, terminalno, paymentseri, billid, is_fenrun, is_remoney, 
+    re_amount
+  </sql>
+  <sql id="Blob_Column_List" >
+    tostr, ship_addr, memo, mark_text, addon
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sdb_b2c_orders
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from sdb_b2c_orders
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>=0" >
+      limit #{limitStart} , #{limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sdb_b2c_orders
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sdb_b2c_orders
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderExample" >
+    delete from sdb_b2c_orders
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
+    <selectKey resultType="java.lang.Long" keyProperty="orderId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sdb_b2c_orders (net_no, gysids, gys_name, 
+      psam, billno, pay_time, 
+      total_amount, final_amount, pay_status, 
+      quhuotime, daohuotime, isqianshou, 
+      isdaohuo, ship_status, arrival_status, 
+      recevice_status, is_delivery, createtime, 
+      last_modified, payment, shipping_id, 
+      shipping, member_id, member_name, 
+      member_id_card, status, is_dead, 
+      confirm, ship_area, ship_name, 
+      weight, itemnum, ip, 
+      ship_zip, ship_tel, ship_email, 
+      ship_time, ship_mobile, cost_item, 
+      is_tax, cost_tax, tax_company, 
+      is_protect, cost_protect, cost_payment, 
+      currency, cur_rate, score_u, 
+      score_g, discount, pmt_goods, 
+      pmt_order, payed, disabled, 
+      mark_type, cost_freight, extend, 
+      order_refer, source, bill_settle_status, 
+      bill_settle_msg, channel_source, channel_type, 
+      os, sid, netid, terminalno, 
+      paymentseri, billid, is_fenrun, 
+      is_remoney, re_amount, tostr, 
+      ship_addr, memo, mark_text, 
+      addon)
+    values (#{netNo,jdbcType=VARCHAR}, #{gysids,jdbcType=VARCHAR}, #{gysName,jdbcType=VARCHAR}, 
+      #{psam,jdbcType=VARCHAR}, #{billno,jdbcType=VARCHAR}, #{payTime,jdbcType=VARCHAR}, 
+      #{totalAmount,jdbcType=DECIMAL}, #{finalAmount,jdbcType=DECIMAL}, #{payStatus,jdbcType=CHAR}, 
+      #{quhuotime,jdbcType=VARCHAR}, #{daohuotime,jdbcType=VARCHAR}, #{isqianshou,jdbcType=VARCHAR}, 
+      #{isdaohuo,jdbcType=VARCHAR}, #{shipStatus,jdbcType=CHAR}, #{arrivalStatus,jdbcType=CHAR}, 
+      #{receviceStatus,jdbcType=CHAR}, #{isDelivery,jdbcType=CHAR}, #{createtime,jdbcType=BIGINT}, 
+      #{lastModified,jdbcType=BIGINT}, #{payment,jdbcType=VARCHAR}, #{shippingId,jdbcType=INTEGER}, 
+      #{shipping,jdbcType=VARCHAR}, #{memberId,jdbcType=INTEGER}, #{memberName,jdbcType=VARCHAR}, 
+      #{memberIdCard,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{isDead,jdbcType=CHAR}, 
+      #{confirm,jdbcType=CHAR}, #{shipArea,jdbcType=VARCHAR}, #{shipName,jdbcType=VARCHAR}, 
+      #{weight,jdbcType=DECIMAL}, #{itemnum,jdbcType=INTEGER}, #{ip,jdbcType=VARCHAR}, 
+      #{shipZip,jdbcType=VARCHAR}, #{shipTel,jdbcType=VARCHAR}, #{shipEmail,jdbcType=VARCHAR}, 
+      #{shipTime,jdbcType=VARCHAR}, #{shipMobile,jdbcType=VARCHAR}, #{costItem,jdbcType=DECIMAL}, 
+      #{isTax,jdbcType=CHAR}, #{costTax,jdbcType=DECIMAL}, #{taxCompany,jdbcType=VARCHAR}, 
+      #{isProtect,jdbcType=CHAR}, #{costProtect,jdbcType=DECIMAL}, #{costPayment,jdbcType=DECIMAL}, 
+      #{currency,jdbcType=VARCHAR}, #{curRate,jdbcType=DECIMAL}, #{scoreU,jdbcType=DECIMAL}, 
+      #{scoreG,jdbcType=DECIMAL}, #{discount,jdbcType=DECIMAL}, #{pmtGoods,jdbcType=DECIMAL}, 
+      #{pmtOrder,jdbcType=DECIMAL}, #{payed,jdbcType=DECIMAL}, #{disabled,jdbcType=CHAR}, 
+      #{markType,jdbcType=VARCHAR}, #{costFreight,jdbcType=DECIMAL}, #{extend,jdbcType=VARCHAR}, 
+      #{orderRefer,jdbcType=VARCHAR}, #{source,jdbcType=CHAR}, #{billSettleStatus,jdbcType=CHAR}, 
+      #{billSettleMsg,jdbcType=VARCHAR}, #{channelSource,jdbcType=CHAR}, #{channelType,jdbcType=CHAR}, 
+      #{os,jdbcType=CHAR}, #{sid,jdbcType=VARCHAR}, #{netid,jdbcType=VARCHAR}, #{terminalno,jdbcType=VARCHAR}, 
+      #{paymentseri,jdbcType=VARCHAR}, #{billid,jdbcType=VARCHAR}, #{isFenrun,jdbcType=CHAR}, 
+      #{isRemoney,jdbcType=CHAR}, #{reAmount,jdbcType=DECIMAL}, #{tostr,jdbcType=LONGVARCHAR}, 
+      #{shipAddr,jdbcType=LONGVARCHAR}, #{memo,jdbcType=LONGVARCHAR}, #{markText,jdbcType=LONGVARCHAR}, 
+      #{addon,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
+    <selectKey resultType="java.lang.Long" keyProperty="orderId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into sdb_b2c_orders
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="netNo != null" >
+        net_no,
+      </if>
+      <if test="gysids != null" >
+        gysids,
+      </if>
+      <if test="gysName != null" >
+        gys_name,
+      </if>
+      <if test="psam != null" >
+        psam,
+      </if>
+      <if test="billno != null" >
+        billno,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="totalAmount != null" >
+        total_amount,
+      </if>
+      <if test="finalAmount != null" >
+        final_amount,
+      </if>
+      <if test="payStatus != null" >
+        pay_status,
+      </if>
+      <if test="quhuotime != null" >
+        quhuotime,
+      </if>
+      <if test="daohuotime != null" >
+        daohuotime,
+      </if>
+      <if test="isqianshou != null" >
+        isqianshou,
+      </if>
+      <if test="isdaohuo != null" >
+        isdaohuo,
+      </if>
+      <if test="shipStatus != null" >
+        ship_status,
+      </if>
+      <if test="arrivalStatus != null" >
+        arrival_status,
+      </if>
+      <if test="receviceStatus != null" >
+        recevice_status,
+      </if>
+      <if test="isDelivery != null" >
+        is_delivery,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="lastModified != null" >
+        last_modified,
+      </if>
+      <if test="payment != null" >
+        payment,
+      </if>
+      <if test="shippingId != null" >
+        shipping_id,
+      </if>
+      <if test="shipping != null" >
+        shipping,
+      </if>
+      <if test="memberId != null" >
+        member_id,
+      </if>
+      <if test="memberName != null" >
+        member_name,
+      </if>
+      <if test="memberIdCard != null" >
+        member_id_card,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="isDead != null" >
+        is_dead,
+      </if>
+      <if test="confirm != null" >
+        confirm,
+      </if>
+      <if test="shipArea != null" >
+        ship_area,
+      </if>
+      <if test="shipName != null" >
+        ship_name,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="itemnum != null" >
+        itemnum,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="shipZip != null" >
+        ship_zip,
+      </if>
+      <if test="shipTel != null" >
+        ship_tel,
+      </if>
+      <if test="shipEmail != null" >
+        ship_email,
+      </if>
+      <if test="shipTime != null" >
+        ship_time,
+      </if>
+      <if test="shipMobile != null" >
+        ship_mobile,
+      </if>
+      <if test="costItem != null" >
+        cost_item,
+      </if>
+      <if test="isTax != null" >
+        is_tax,
+      </if>
+      <if test="costTax != null" >
+        cost_tax,
+      </if>
+      <if test="taxCompany != null" >
+        tax_company,
+      </if>
+      <if test="isProtect != null" >
+        is_protect,
+      </if>
+      <if test="costProtect != null" >
+        cost_protect,
+      </if>
+      <if test="costPayment != null" >
+        cost_payment,
+      </if>
+      <if test="currency != null" >
+        currency,
+      </if>
+      <if test="curRate != null" >
+        cur_rate,
+      </if>
+      <if test="scoreU != null" >
+        score_u,
+      </if>
+      <if test="scoreG != null" >
+        score_g,
+      </if>
+      <if test="discount != null" >
+        discount,
+      </if>
+      <if test="pmtGoods != null" >
+        pmt_goods,
+      </if>
+      <if test="pmtOrder != null" >
+        pmt_order,
+      </if>
+      <if test="payed != null" >
+        payed,
+      </if>
+      <if test="disabled != null" >
+        disabled,
+      </if>
+      <if test="markType != null" >
+        mark_type,
+      </if>
+      <if test="costFreight != null" >
+        cost_freight,
+      </if>
+      <if test="extend != null" >
+        extend,
+      </if>
+      <if test="orderRefer != null" >
+        order_refer,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="billSettleStatus != null" >
+        bill_settle_status,
+      </if>
+      <if test="billSettleMsg != null" >
+        bill_settle_msg,
+      </if>
+      <if test="channelSource != null" >
+        channel_source,
+      </if>
+      <if test="channelType != null" >
+        channel_type,
+      </if>
+      <if test="os != null" >
+        os,
+      </if>
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="netid != null" >
+        netid,
+      </if>
+      <if test="terminalno != null" >
+        terminalno,
+      </if>
+      <if test="paymentseri != null" >
+        paymentseri,
+      </if>
+      <if test="billid != null" >
+        billid,
+      </if>
+      <if test="isFenrun != null" >
+        is_fenrun,
+      </if>
+      <if test="isRemoney != null" >
+        is_remoney,
+      </if>
+      <if test="reAmount != null" >
+        re_amount,
+      </if>
+      <if test="tostr != null" >
+        tostr,
+      </if>
+      <if test="shipAddr != null" >
+        ship_addr,
+      </if>
+      <if test="memo != null" >
+        memo,
+      </if>
+      <if test="markText != null" >
+        mark_text,
+      </if>
+      <if test="addon != null" >
+        addon,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="netNo != null" >
+        #{netNo,jdbcType=VARCHAR},
+      </if>
+      <if test="gysids != null" >
+        #{gysids,jdbcType=VARCHAR},
+      </if>
+      <if test="gysName != null" >
+        #{gysName,jdbcType=VARCHAR},
+      </if>
+      <if test="psam != null" >
+        #{psam,jdbcType=VARCHAR},
+      </if>
+      <if test="billno != null" >
+        #{billno,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmount != null" >
+        #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="finalAmount != null" >
+        #{finalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payStatus != null" >
+        #{payStatus,jdbcType=CHAR},
+      </if>
+      <if test="quhuotime != null" >
+        #{quhuotime,jdbcType=VARCHAR},
+      </if>
+      <if test="daohuotime != null" >
+        #{daohuotime,jdbcType=VARCHAR},
+      </if>
+      <if test="isqianshou != null" >
+        #{isqianshou,jdbcType=VARCHAR},
+      </if>
+      <if test="isdaohuo != null" >
+        #{isdaohuo,jdbcType=VARCHAR},
+      </if>
+      <if test="shipStatus != null" >
+        #{shipStatus,jdbcType=CHAR},
+      </if>
+      <if test="arrivalStatus != null" >
+        #{arrivalStatus,jdbcType=CHAR},
+      </if>
+      <if test="receviceStatus != null" >
+        #{receviceStatus,jdbcType=CHAR},
+      </if>
+      <if test="isDelivery != null" >
+        #{isDelivery,jdbcType=CHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="lastModified != null" >
+        #{lastModified,jdbcType=BIGINT},
+      </if>
+      <if test="payment != null" >
+        #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingId != null" >
+        #{shippingId,jdbcType=INTEGER},
+      </if>
+      <if test="shipping != null" >
+        #{shipping,jdbcType=VARCHAR},
+      </if>
+      <if test="memberId != null" >
+        #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="memberName != null" >
+        #{memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="memberIdCard != null" >
+        #{memberIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="isDead != null" >
+        #{isDead,jdbcType=CHAR},
+      </if>
+      <if test="confirm != null" >
+        #{confirm,jdbcType=CHAR},
+      </if>
+      <if test="shipArea != null" >
+        #{shipArea,jdbcType=VARCHAR},
+      </if>
+      <if test="shipName != null" >
+        #{shipName,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="itemnum != null" >
+        #{itemnum,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="shipZip != null" >
+        #{shipZip,jdbcType=VARCHAR},
+      </if>
+      <if test="shipTel != null" >
+        #{shipTel,jdbcType=VARCHAR},
+      </if>
+      <if test="shipEmail != null" >
+        #{shipEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="shipTime != null" >
+        #{shipTime,jdbcType=VARCHAR},
+      </if>
+      <if test="shipMobile != null" >
+        #{shipMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="costItem != null" >
+        #{costItem,jdbcType=DECIMAL},
+      </if>
+      <if test="isTax != null" >
+        #{isTax,jdbcType=CHAR},
+      </if>
+      <if test="costTax != null" >
+        #{costTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxCompany != null" >
+        #{taxCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="isProtect != null" >
+        #{isProtect,jdbcType=CHAR},
+      </if>
+      <if test="costProtect != null" >
+        #{costProtect,jdbcType=DECIMAL},
+      </if>
+      <if test="costPayment != null" >
+        #{costPayment,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="curRate != null" >
+        #{curRate,jdbcType=DECIMAL},
+      </if>
+      <if test="scoreU != null" >
+        #{scoreU,jdbcType=DECIMAL},
+      </if>
+      <if test="scoreG != null" >
+        #{scoreG,jdbcType=DECIMAL},
+      </if>
+      <if test="discount != null" >
+        #{discount,jdbcType=DECIMAL},
+      </if>
+      <if test="pmtGoods != null" >
+        #{pmtGoods,jdbcType=DECIMAL},
+      </if>
+      <if test="pmtOrder != null" >
+        #{pmtOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="payed != null" >
+        #{payed,jdbcType=DECIMAL},
+      </if>
+      <if test="disabled != null" >
+        #{disabled,jdbcType=CHAR},
+      </if>
+      <if test="markType != null" >
+        #{markType,jdbcType=VARCHAR},
+      </if>
+      <if test="costFreight != null" >
+        #{costFreight,jdbcType=DECIMAL},
+      </if>
+      <if test="extend != null" >
+        #{extend,jdbcType=VARCHAR},
+      </if>
+      <if test="orderRefer != null" >
+        #{orderRefer,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=CHAR},
+      </if>
+      <if test="billSettleStatus != null" >
+        #{billSettleStatus,jdbcType=CHAR},
+      </if>
+      <if test="billSettleMsg != null" >
+        #{billSettleMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="channelSource != null" >
+        #{channelSource,jdbcType=CHAR},
+      </if>
+      <if test="channelType != null" >
+        #{channelType,jdbcType=CHAR},
+      </if>
+      <if test="os != null" >
+        #{os,jdbcType=CHAR},
+      </if>
+      <if test="sid != null" >
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="netid != null" >
+        #{netid,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalno != null" >
+        #{terminalno,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentseri != null" >
+        #{paymentseri,jdbcType=VARCHAR},
+      </if>
+      <if test="billid != null" >
+        #{billid,jdbcType=VARCHAR},
+      </if>
+      <if test="isFenrun != null" >
+        #{isFenrun,jdbcType=CHAR},
+      </if>
+      <if test="isRemoney != null" >
+        #{isRemoney,jdbcType=CHAR},
+      </if>
+      <if test="reAmount != null" >
+        #{reAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="tostr != null" >
+        #{tostr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="shipAddr != null" >
+        #{shipAddr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="markText != null" >
+        #{markText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="addon != null" >
+        #{addon,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderExample" resultType="java.lang.Integer" >
+    select count(*) from sdb_b2c_orders
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sdb_b2c_orders
+    <set >
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId,jdbcType=BIGINT},
+      </if>
+      <if test="record.netNo != null" >
+        net_no = #{record.netNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gysids != null" >
+        gysids = #{record.gysids,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gysName != null" >
+        gys_name = #{record.gysName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.psam != null" >
+        psam = #{record.psam,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billno != null" >
+        billno = #{record.billno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payTime != null" >
+        pay_time = #{record.payTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalAmount != null" >
+        total_amount = #{record.totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.finalAmount != null" >
+        final_amount = #{record.finalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.payStatus != null" >
+        pay_status = #{record.payStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.quhuotime != null" >
+        quhuotime = #{record.quhuotime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.daohuotime != null" >
+        daohuotime = #{record.daohuotime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isqianshou != null" >
+        isqianshou = #{record.isqianshou,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdaohuo != null" >
+        isdaohuo = #{record.isdaohuo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shipStatus != null" >
+        ship_status = #{record.shipStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.arrivalStatus != null" >
+        arrival_status = #{record.arrivalStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.receviceStatus != null" >
+        recevice_status = #{record.receviceStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.isDelivery != null" >
+        is_delivery = #{record.isDelivery,jdbcType=CHAR},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=BIGINT},
+      </if>
+      <if test="record.lastModified != null" >
+        last_modified = #{record.lastModified,jdbcType=BIGINT},
+      </if>
+      <if test="record.payment != null" >
+        payment = #{record.payment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shippingId != null" >
+        shipping_id = #{record.shippingId,jdbcType=INTEGER},
+      </if>
+      <if test="record.shipping != null" >
+        shipping = #{record.shipping,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memberId != null" >
+        member_id = #{record.memberId,jdbcType=INTEGER},
+      </if>
+      <if test="record.memberName != null" >
+        member_name = #{record.memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memberIdCard != null" >
+        member_id_card = #{record.memberIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.isDead != null" >
+        is_dead = #{record.isDead,jdbcType=CHAR},
+      </if>
+      <if test="record.confirm != null" >
+        confirm = #{record.confirm,jdbcType=CHAR},
+      </if>
+      <if test="record.shipArea != null" >
+        ship_area = #{record.shipArea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shipName != null" >
+        ship_name = #{record.shipName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weight != null" >
+        weight = #{record.weight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.itemnum != null" >
+        itemnum = #{record.itemnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.ip != null" >
+        ip = #{record.ip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shipZip != null" >
+        ship_zip = #{record.shipZip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shipTel != null" >
+        ship_tel = #{record.shipTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shipEmail != null" >
+        ship_email = #{record.shipEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shipTime != null" >
+        ship_time = #{record.shipTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shipMobile != null" >
+        ship_mobile = #{record.shipMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costItem != null" >
+        cost_item = #{record.costItem,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isTax != null" >
+        is_tax = #{record.isTax,jdbcType=CHAR},
+      </if>
+      <if test="record.costTax != null" >
+        cost_tax = #{record.costTax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.taxCompany != null" >
+        tax_company = #{record.taxCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isProtect != null" >
+        is_protect = #{record.isProtect,jdbcType=CHAR},
+      </if>
+      <if test="record.costProtect != null" >
+        cost_protect = #{record.costProtect,jdbcType=DECIMAL},
+      </if>
+      <if test="record.costPayment != null" >
+        cost_payment = #{record.costPayment,jdbcType=DECIMAL},
+      </if>
+      <if test="record.currency != null" >
+        currency = #{record.currency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.curRate != null" >
+        cur_rate = #{record.curRate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.scoreU != null" >
+        score_u = #{record.scoreU,jdbcType=DECIMAL},
+      </if>
+      <if test="record.scoreG != null" >
+        score_g = #{record.scoreG,jdbcType=DECIMAL},
+      </if>
+      <if test="record.discount != null" >
+        discount = #{record.discount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.pmtGoods != null" >
+        pmt_goods = #{record.pmtGoods,jdbcType=DECIMAL},
+      </if>
+      <if test="record.pmtOrder != null" >
+        pmt_order = #{record.pmtOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="record.payed != null" >
+        payed = #{record.payed,jdbcType=DECIMAL},
+      </if>
+      <if test="record.disabled != null" >
+        disabled = #{record.disabled,jdbcType=CHAR},
+      </if>
+      <if test="record.markType != null" >
+        mark_type = #{record.markType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costFreight != null" >
+        cost_freight = #{record.costFreight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.extend != null" >
+        extend = #{record.extend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderRefer != null" >
+        order_refer = #{record.orderRefer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source,jdbcType=CHAR},
+      </if>
+      <if test="record.billSettleStatus != null" >
+        bill_settle_status = #{record.billSettleStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.billSettleMsg != null" >
+        bill_settle_msg = #{record.billSettleMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.channelSource != null" >
+        channel_source = #{record.channelSource,jdbcType=CHAR},
+      </if>
+      <if test="record.channelType != null" >
+        channel_type = #{record.channelType,jdbcType=CHAR},
+      </if>
+      <if test="record.os != null" >
+        os = #{record.os,jdbcType=CHAR},
+      </if>
+      <if test="record.sid != null" >
+        sid = #{record.sid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.netid != null" >
+        netid = #{record.netid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.terminalno != null" >
+        terminalno = #{record.terminalno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paymentseri != null" >
+        paymentseri = #{record.paymentseri,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billid != null" >
+        billid = #{record.billid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isFenrun != null" >
+        is_fenrun = #{record.isFenrun,jdbcType=CHAR},
+      </if>
+      <if test="record.isRemoney != null" >
+        is_remoney = #{record.isRemoney,jdbcType=CHAR},
+      </if>
+      <if test="record.reAmount != null" >
+        re_amount = #{record.reAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tostr != null" >
+        tostr = #{record.tostr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.shipAddr != null" >
+        ship_addr = #{record.shipAddr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.memo != null" >
+        memo = #{record.memo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.markText != null" >
+        mark_text = #{record.markText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.addon != null" >
+        addon = #{record.addon,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update sdb_b2c_orders
+    set order_id = #{record.orderId,jdbcType=BIGINT},
+      net_no = #{record.netNo,jdbcType=VARCHAR},
+      gysids = #{record.gysids,jdbcType=VARCHAR},
+      gys_name = #{record.gysName,jdbcType=VARCHAR},
+      psam = #{record.psam,jdbcType=VARCHAR},
+      billno = #{record.billno,jdbcType=VARCHAR},
+      pay_time = #{record.payTime,jdbcType=VARCHAR},
+      total_amount = #{record.totalAmount,jdbcType=DECIMAL},
+      final_amount = #{record.finalAmount,jdbcType=DECIMAL},
+      pay_status = #{record.payStatus,jdbcType=CHAR},
+      quhuotime = #{record.quhuotime,jdbcType=VARCHAR},
+      daohuotime = #{record.daohuotime,jdbcType=VARCHAR},
+      isqianshou = #{record.isqianshou,jdbcType=VARCHAR},
+      isdaohuo = #{record.isdaohuo,jdbcType=VARCHAR},
+      ship_status = #{record.shipStatus,jdbcType=CHAR},
+      arrival_status = #{record.arrivalStatus,jdbcType=CHAR},
+      recevice_status = #{record.receviceStatus,jdbcType=CHAR},
+      is_delivery = #{record.isDelivery,jdbcType=CHAR},
+      createtime = #{record.createtime,jdbcType=BIGINT},
+      last_modified = #{record.lastModified,jdbcType=BIGINT},
+      payment = #{record.payment,jdbcType=VARCHAR},
+      shipping_id = #{record.shippingId,jdbcType=INTEGER},
+      shipping = #{record.shipping,jdbcType=VARCHAR},
+      member_id = #{record.memberId,jdbcType=INTEGER},
+      member_name = #{record.memberName,jdbcType=VARCHAR},
+      member_id_card = #{record.memberIdCard,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=CHAR},
+      is_dead = #{record.isDead,jdbcType=CHAR},
+      confirm = #{record.confirm,jdbcType=CHAR},
+      ship_area = #{record.shipArea,jdbcType=VARCHAR},
+      ship_name = #{record.shipName,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=DECIMAL},
+      itemnum = #{record.itemnum,jdbcType=INTEGER},
+      ip = #{record.ip,jdbcType=VARCHAR},
+      ship_zip = #{record.shipZip,jdbcType=VARCHAR},
+      ship_tel = #{record.shipTel,jdbcType=VARCHAR},
+      ship_email = #{record.shipEmail,jdbcType=VARCHAR},
+      ship_time = #{record.shipTime,jdbcType=VARCHAR},
+      ship_mobile = #{record.shipMobile,jdbcType=VARCHAR},
+      cost_item = #{record.costItem,jdbcType=DECIMAL},
+      is_tax = #{record.isTax,jdbcType=CHAR},
+      cost_tax = #{record.costTax,jdbcType=DECIMAL},
+      tax_company = #{record.taxCompany,jdbcType=VARCHAR},
+      is_protect = #{record.isProtect,jdbcType=CHAR},
+      cost_protect = #{record.costProtect,jdbcType=DECIMAL},
+      cost_payment = #{record.costPayment,jdbcType=DECIMAL},
+      currency = #{record.currency,jdbcType=VARCHAR},
+      cur_rate = #{record.curRate,jdbcType=DECIMAL},
+      score_u = #{record.scoreU,jdbcType=DECIMAL},
+      score_g = #{record.scoreG,jdbcType=DECIMAL},
+      discount = #{record.discount,jdbcType=DECIMAL},
+      pmt_goods = #{record.pmtGoods,jdbcType=DECIMAL},
+      pmt_order = #{record.pmtOrder,jdbcType=DECIMAL},
+      payed = #{record.payed,jdbcType=DECIMAL},
+      disabled = #{record.disabled,jdbcType=CHAR},
+      mark_type = #{record.markType,jdbcType=VARCHAR},
+      cost_freight = #{record.costFreight,jdbcType=DECIMAL},
+      extend = #{record.extend,jdbcType=VARCHAR},
+      order_refer = #{record.orderRefer,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=CHAR},
+      bill_settle_status = #{record.billSettleStatus,jdbcType=CHAR},
+      bill_settle_msg = #{record.billSettleMsg,jdbcType=VARCHAR},
+      channel_source = #{record.channelSource,jdbcType=CHAR},
+      channel_type = #{record.channelType,jdbcType=CHAR},
+      os = #{record.os,jdbcType=CHAR},
+      sid = #{record.sid,jdbcType=VARCHAR},
+      netid = #{record.netid,jdbcType=VARCHAR},
+      terminalno = #{record.terminalno,jdbcType=VARCHAR},
+      paymentseri = #{record.paymentseri,jdbcType=VARCHAR},
+      billid = #{record.billid,jdbcType=VARCHAR},
+      is_fenrun = #{record.isFenrun,jdbcType=CHAR},
+      is_remoney = #{record.isRemoney,jdbcType=CHAR},
+      re_amount = #{record.reAmount,jdbcType=DECIMAL},
+      tostr = #{record.tostr,jdbcType=LONGVARCHAR},
+      ship_addr = #{record.shipAddr,jdbcType=LONGVARCHAR},
+      memo = #{record.memo,jdbcType=LONGVARCHAR},
+      mark_text = #{record.markText,jdbcType=LONGVARCHAR},
+      addon = #{record.addon,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sdb_b2c_orders
+    set order_id = #{record.orderId,jdbcType=BIGINT},
+      net_no = #{record.netNo,jdbcType=VARCHAR},
+      gysids = #{record.gysids,jdbcType=VARCHAR},
+      gys_name = #{record.gysName,jdbcType=VARCHAR},
+      psam = #{record.psam,jdbcType=VARCHAR},
+      billno = #{record.billno,jdbcType=VARCHAR},
+      pay_time = #{record.payTime,jdbcType=VARCHAR},
+      total_amount = #{record.totalAmount,jdbcType=DECIMAL},
+      final_amount = #{record.finalAmount,jdbcType=DECIMAL},
+      pay_status = #{record.payStatus,jdbcType=CHAR},
+      quhuotime = #{record.quhuotime,jdbcType=VARCHAR},
+      daohuotime = #{record.daohuotime,jdbcType=VARCHAR},
+      isqianshou = #{record.isqianshou,jdbcType=VARCHAR},
+      isdaohuo = #{record.isdaohuo,jdbcType=VARCHAR},
+      ship_status = #{record.shipStatus,jdbcType=CHAR},
+      arrival_status = #{record.arrivalStatus,jdbcType=CHAR},
+      recevice_status = #{record.receviceStatus,jdbcType=CHAR},
+      is_delivery = #{record.isDelivery,jdbcType=CHAR},
+      createtime = #{record.createtime,jdbcType=BIGINT},
+      last_modified = #{record.lastModified,jdbcType=BIGINT},
+      payment = #{record.payment,jdbcType=VARCHAR},
+      shipping_id = #{record.shippingId,jdbcType=INTEGER},
+      shipping = #{record.shipping,jdbcType=VARCHAR},
+      member_id = #{record.memberId,jdbcType=INTEGER},
+      member_name = #{record.memberName,jdbcType=VARCHAR},
+      member_id_card = #{record.memberIdCard,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=CHAR},
+      is_dead = #{record.isDead,jdbcType=CHAR},
+      confirm = #{record.confirm,jdbcType=CHAR},
+      ship_area = #{record.shipArea,jdbcType=VARCHAR},
+      ship_name = #{record.shipName,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=DECIMAL},
+      itemnum = #{record.itemnum,jdbcType=INTEGER},
+      ip = #{record.ip,jdbcType=VARCHAR},
+      ship_zip = #{record.shipZip,jdbcType=VARCHAR},
+      ship_tel = #{record.shipTel,jdbcType=VARCHAR},
+      ship_email = #{record.shipEmail,jdbcType=VARCHAR},
+      ship_time = #{record.shipTime,jdbcType=VARCHAR},
+      ship_mobile = #{record.shipMobile,jdbcType=VARCHAR},
+      cost_item = #{record.costItem,jdbcType=DECIMAL},
+      is_tax = #{record.isTax,jdbcType=CHAR},
+      cost_tax = #{record.costTax,jdbcType=DECIMAL},
+      tax_company = #{record.taxCompany,jdbcType=VARCHAR},
+      is_protect = #{record.isProtect,jdbcType=CHAR},
+      cost_protect = #{record.costProtect,jdbcType=DECIMAL},
+      cost_payment = #{record.costPayment,jdbcType=DECIMAL},
+      currency = #{record.currency,jdbcType=VARCHAR},
+      cur_rate = #{record.curRate,jdbcType=DECIMAL},
+      score_u = #{record.scoreU,jdbcType=DECIMAL},
+      score_g = #{record.scoreG,jdbcType=DECIMAL},
+      discount = #{record.discount,jdbcType=DECIMAL},
+      pmt_goods = #{record.pmtGoods,jdbcType=DECIMAL},
+      pmt_order = #{record.pmtOrder,jdbcType=DECIMAL},
+      payed = #{record.payed,jdbcType=DECIMAL},
+      disabled = #{record.disabled,jdbcType=CHAR},
+      mark_type = #{record.markType,jdbcType=VARCHAR},
+      cost_freight = #{record.costFreight,jdbcType=DECIMAL},
+      extend = #{record.extend,jdbcType=VARCHAR},
+      order_refer = #{record.orderRefer,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=CHAR},
+      bill_settle_status = #{record.billSettleStatus,jdbcType=CHAR},
+      bill_settle_msg = #{record.billSettleMsg,jdbcType=VARCHAR},
+      channel_source = #{record.channelSource,jdbcType=CHAR},
+      channel_type = #{record.channelType,jdbcType=CHAR},
+      os = #{record.os,jdbcType=CHAR},
+      sid = #{record.sid,jdbcType=VARCHAR},
+      netid = #{record.netid,jdbcType=VARCHAR},
+      terminalno = #{record.terminalno,jdbcType=VARCHAR},
+      paymentseri = #{record.paymentseri,jdbcType=VARCHAR},
+      billid = #{record.billid,jdbcType=VARCHAR},
+      is_fenrun = #{record.isFenrun,jdbcType=CHAR},
+      is_remoney = #{record.isRemoney,jdbcType=CHAR},
+      re_amount = #{record.reAmount,jdbcType=DECIMAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
+    update sdb_b2c_orders
+    <set >
+      <if test="netNo != null" >
+        net_no = #{netNo,jdbcType=VARCHAR},
+      </if>
+      <if test="gysids != null" >
+        gysids = #{gysids,jdbcType=VARCHAR},
+      </if>
+      <if test="gysName != null" >
+        gys_name = #{gysName,jdbcType=VARCHAR},
+      </if>
+      <if test="psam != null" >
+        psam = #{psam,jdbcType=VARCHAR},
+      </if>
+      <if test="billno != null" >
+        billno = #{billno,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=VARCHAR},
+      </if>
+      <if test="totalAmount != null" >
+        total_amount = #{totalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="finalAmount != null" >
+        final_amount = #{finalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payStatus != null" >
+        pay_status = #{payStatus,jdbcType=CHAR},
+      </if>
+      <if test="quhuotime != null" >
+        quhuotime = #{quhuotime,jdbcType=VARCHAR},
+      </if>
+      <if test="daohuotime != null" >
+        daohuotime = #{daohuotime,jdbcType=VARCHAR},
+      </if>
+      <if test="isqianshou != null" >
+        isqianshou = #{isqianshou,jdbcType=VARCHAR},
+      </if>
+      <if test="isdaohuo != null" >
+        isdaohuo = #{isdaohuo,jdbcType=VARCHAR},
+      </if>
+      <if test="shipStatus != null" >
+        ship_status = #{shipStatus,jdbcType=CHAR},
+      </if>
+      <if test="arrivalStatus != null" >
+        arrival_status = #{arrivalStatus,jdbcType=CHAR},
+      </if>
+      <if test="receviceStatus != null" >
+        recevice_status = #{receviceStatus,jdbcType=CHAR},
+      </if>
+      <if test="isDelivery != null" >
+        is_delivery = #{isDelivery,jdbcType=CHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="lastModified != null" >
+        last_modified = #{lastModified,jdbcType=BIGINT},
+      </if>
+      <if test="payment != null" >
+        payment = #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingId != null" >
+        shipping_id = #{shippingId,jdbcType=INTEGER},
+      </if>
+      <if test="shipping != null" >
+        shipping = #{shipping,jdbcType=VARCHAR},
+      </if>
+      <if test="memberId != null" >
+        member_id = #{memberId,jdbcType=INTEGER},
+      </if>
+      <if test="memberName != null" >
+        member_name = #{memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="memberIdCard != null" >
+        member_id_card = #{memberIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="isDead != null" >
+        is_dead = #{isDead,jdbcType=CHAR},
+      </if>
+      <if test="confirm != null" >
+        confirm = #{confirm,jdbcType=CHAR},
+      </if>
+      <if test="shipArea != null" >
+        ship_area = #{shipArea,jdbcType=VARCHAR},
+      </if>
+      <if test="shipName != null" >
+        ship_name = #{shipName,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="itemnum != null" >
+        itemnum = #{itemnum,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="shipZip != null" >
+        ship_zip = #{shipZip,jdbcType=VARCHAR},
+      </if>
+      <if test="shipTel != null" >
+        ship_tel = #{shipTel,jdbcType=VARCHAR},
+      </if>
+      <if test="shipEmail != null" >
+        ship_email = #{shipEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="shipTime != null" >
+        ship_time = #{shipTime,jdbcType=VARCHAR},
+      </if>
+      <if test="shipMobile != null" >
+        ship_mobile = #{shipMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="costItem != null" >
+        cost_item = #{costItem,jdbcType=DECIMAL},
+      </if>
+      <if test="isTax != null" >
+        is_tax = #{isTax,jdbcType=CHAR},
+      </if>
+      <if test="costTax != null" >
+        cost_tax = #{costTax,jdbcType=DECIMAL},
+      </if>
+      <if test="taxCompany != null" >
+        tax_company = #{taxCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="isProtect != null" >
+        is_protect = #{isProtect,jdbcType=CHAR},
+      </if>
+      <if test="costProtect != null" >
+        cost_protect = #{costProtect,jdbcType=DECIMAL},
+      </if>
+      <if test="costPayment != null" >
+        cost_payment = #{costPayment,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null" >
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="curRate != null" >
+        cur_rate = #{curRate,jdbcType=DECIMAL},
+      </if>
+      <if test="scoreU != null" >
+        score_u = #{scoreU,jdbcType=DECIMAL},
+      </if>
+      <if test="scoreG != null" >
+        score_g = #{scoreG,jdbcType=DECIMAL},
+      </if>
+      <if test="discount != null" >
+        discount = #{discount,jdbcType=DECIMAL},
+      </if>
+      <if test="pmtGoods != null" >
+        pmt_goods = #{pmtGoods,jdbcType=DECIMAL},
+      </if>
+      <if test="pmtOrder != null" >
+        pmt_order = #{pmtOrder,jdbcType=DECIMAL},
+      </if>
+      <if test="payed != null" >
+        payed = #{payed,jdbcType=DECIMAL},
+      </if>
+      <if test="disabled != null" >
+        disabled = #{disabled,jdbcType=CHAR},
+      </if>
+      <if test="markType != null" >
+        mark_type = #{markType,jdbcType=VARCHAR},
+      </if>
+      <if test="costFreight != null" >
+        cost_freight = #{costFreight,jdbcType=DECIMAL},
+      </if>
+      <if test="extend != null" >
+        extend = #{extend,jdbcType=VARCHAR},
+      </if>
+      <if test="orderRefer != null" >
+        order_refer = #{orderRefer,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=CHAR},
+      </if>
+      <if test="billSettleStatus != null" >
+        bill_settle_status = #{billSettleStatus,jdbcType=CHAR},
+      </if>
+      <if test="billSettleMsg != null" >
+        bill_settle_msg = #{billSettleMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="channelSource != null" >
+        channel_source = #{channelSource,jdbcType=CHAR},
+      </if>
+      <if test="channelType != null" >
+        channel_type = #{channelType,jdbcType=CHAR},
+      </if>
+      <if test="os != null" >
+        os = #{os,jdbcType=CHAR},
+      </if>
+      <if test="sid != null" >
+        sid = #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="netid != null" >
+        netid = #{netid,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalno != null" >
+        terminalno = #{terminalno,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentseri != null" >
+        paymentseri = #{paymentseri,jdbcType=VARCHAR},
+      </if>
+      <if test="billid != null" >
+        billid = #{billid,jdbcType=VARCHAR},
+      </if>
+      <if test="isFenrun != null" >
+        is_fenrun = #{isFenrun,jdbcType=CHAR},
+      </if>
+      <if test="isRemoney != null" >
+        is_remoney = #{isRemoney,jdbcType=CHAR},
+      </if>
+      <if test="reAmount != null" >
+        re_amount = #{reAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="tostr != null" >
+        tostr = #{tostr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="shipAddr != null" >
+        ship_addr = #{shipAddr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="memo != null" >
+        memo = #{memo,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="markText != null" >
+        mark_text = #{markText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="addon != null" >
+        addon = #{addon,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
+    update sdb_b2c_orders
+    set net_no = #{netNo,jdbcType=VARCHAR},
+      gysids = #{gysids,jdbcType=VARCHAR},
+      gys_name = #{gysName,jdbcType=VARCHAR},
+      psam = #{psam,jdbcType=VARCHAR},
+      billno = #{billno,jdbcType=VARCHAR},
+      pay_time = #{payTime,jdbcType=VARCHAR},
+      total_amount = #{totalAmount,jdbcType=DECIMAL},
+      final_amount = #{finalAmount,jdbcType=DECIMAL},
+      pay_status = #{payStatus,jdbcType=CHAR},
+      quhuotime = #{quhuotime,jdbcType=VARCHAR},
+      daohuotime = #{daohuotime,jdbcType=VARCHAR},
+      isqianshou = #{isqianshou,jdbcType=VARCHAR},
+      isdaohuo = #{isdaohuo,jdbcType=VARCHAR},
+      ship_status = #{shipStatus,jdbcType=CHAR},
+      arrival_status = #{arrivalStatus,jdbcType=CHAR},
+      recevice_status = #{receviceStatus,jdbcType=CHAR},
+      is_delivery = #{isDelivery,jdbcType=CHAR},
+      createtime = #{createtime,jdbcType=BIGINT},
+      last_modified = #{lastModified,jdbcType=BIGINT},
+      payment = #{payment,jdbcType=VARCHAR},
+      shipping_id = #{shippingId,jdbcType=INTEGER},
+      shipping = #{shipping,jdbcType=VARCHAR},
+      member_id = #{memberId,jdbcType=INTEGER},
+      member_name = #{memberName,jdbcType=VARCHAR},
+      member_id_card = #{memberIdCard,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      is_dead = #{isDead,jdbcType=CHAR},
+      confirm = #{confirm,jdbcType=CHAR},
+      ship_area = #{shipArea,jdbcType=VARCHAR},
+      ship_name = #{shipName,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=DECIMAL},
+      itemnum = #{itemnum,jdbcType=INTEGER},
+      ip = #{ip,jdbcType=VARCHAR},
+      ship_zip = #{shipZip,jdbcType=VARCHAR},
+      ship_tel = #{shipTel,jdbcType=VARCHAR},
+      ship_email = #{shipEmail,jdbcType=VARCHAR},
+      ship_time = #{shipTime,jdbcType=VARCHAR},
+      ship_mobile = #{shipMobile,jdbcType=VARCHAR},
+      cost_item = #{costItem,jdbcType=DECIMAL},
+      is_tax = #{isTax,jdbcType=CHAR},
+      cost_tax = #{costTax,jdbcType=DECIMAL},
+      tax_company = #{taxCompany,jdbcType=VARCHAR},
+      is_protect = #{isProtect,jdbcType=CHAR},
+      cost_protect = #{costProtect,jdbcType=DECIMAL},
+      cost_payment = #{costPayment,jdbcType=DECIMAL},
+      currency = #{currency,jdbcType=VARCHAR},
+      cur_rate = #{curRate,jdbcType=DECIMAL},
+      score_u = #{scoreU,jdbcType=DECIMAL},
+      score_g = #{scoreG,jdbcType=DECIMAL},
+      discount = #{discount,jdbcType=DECIMAL},
+      pmt_goods = #{pmtGoods,jdbcType=DECIMAL},
+      pmt_order = #{pmtOrder,jdbcType=DECIMAL},
+      payed = #{payed,jdbcType=DECIMAL},
+      disabled = #{disabled,jdbcType=CHAR},
+      mark_type = #{markType,jdbcType=VARCHAR},
+      cost_freight = #{costFreight,jdbcType=DECIMAL},
+      extend = #{extend,jdbcType=VARCHAR},
+      order_refer = #{orderRefer,jdbcType=VARCHAR},
+      source = #{source,jdbcType=CHAR},
+      bill_settle_status = #{billSettleStatus,jdbcType=CHAR},
+      bill_settle_msg = #{billSettleMsg,jdbcType=VARCHAR},
+      channel_source = #{channelSource,jdbcType=CHAR},
+      channel_type = #{channelType,jdbcType=CHAR},
+      os = #{os,jdbcType=CHAR},
+      sid = #{sid,jdbcType=VARCHAR},
+      netid = #{netid,jdbcType=VARCHAR},
+      terminalno = #{terminalno,jdbcType=VARCHAR},
+      paymentseri = #{paymentseri,jdbcType=VARCHAR},
+      billid = #{billid,jdbcType=VARCHAR},
+      is_fenrun = #{isFenrun,jdbcType=CHAR},
+      is_remoney = #{isRemoney,jdbcType=CHAR},
+      re_amount = #{reAmount,jdbcType=DECIMAL},
+      tostr = #{tostr,jdbcType=LONGVARCHAR},
+      ship_addr = #{shipAddr,jdbcType=LONGVARCHAR},
+      memo = #{memo,jdbcType=LONGVARCHAR},
+      mark_text = #{markText,jdbcType=LONGVARCHAR},
+      addon = #{addon,jdbcType=LONGVARCHAR}
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrder" >
+    update sdb_b2c_orders
+    set net_no = #{netNo,jdbcType=VARCHAR},
+      gysids = #{gysids,jdbcType=VARCHAR},
+      gys_name = #{gysName,jdbcType=VARCHAR},
+      psam = #{psam,jdbcType=VARCHAR},
+      billno = #{billno,jdbcType=VARCHAR},
+      pay_time = #{payTime,jdbcType=VARCHAR},
+      total_amount = #{totalAmount,jdbcType=DECIMAL},
+      final_amount = #{finalAmount,jdbcType=DECIMAL},
+      pay_status = #{payStatus,jdbcType=CHAR},
+      quhuotime = #{quhuotime,jdbcType=VARCHAR},
+      daohuotime = #{daohuotime,jdbcType=VARCHAR},
+      isqianshou = #{isqianshou,jdbcType=VARCHAR},
+      isdaohuo = #{isdaohuo,jdbcType=VARCHAR},
+      ship_status = #{shipStatus,jdbcType=CHAR},
+      arrival_status = #{arrivalStatus,jdbcType=CHAR},
+      recevice_status = #{receviceStatus,jdbcType=CHAR},
+      is_delivery = #{isDelivery,jdbcType=CHAR},
+      createtime = #{createtime,jdbcType=BIGINT},
+      last_modified = #{lastModified,jdbcType=BIGINT},
+      payment = #{payment,jdbcType=VARCHAR},
+      shipping_id = #{shippingId,jdbcType=INTEGER},
+      shipping = #{shipping,jdbcType=VARCHAR},
+      member_id = #{memberId,jdbcType=INTEGER},
+      member_name = #{memberName,jdbcType=VARCHAR},
+      member_id_card = #{memberIdCard,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      is_dead = #{isDead,jdbcType=CHAR},
+      confirm = #{confirm,jdbcType=CHAR},
+      ship_area = #{shipArea,jdbcType=VARCHAR},
+      ship_name = #{shipName,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=DECIMAL},
+      itemnum = #{itemnum,jdbcType=INTEGER},
+      ip = #{ip,jdbcType=VARCHAR},
+      ship_zip = #{shipZip,jdbcType=VARCHAR},
+      ship_tel = #{shipTel,jdbcType=VARCHAR},
+      ship_email = #{shipEmail,jdbcType=VARCHAR},
+      ship_time = #{shipTime,jdbcType=VARCHAR},
+      ship_mobile = #{shipMobile,jdbcType=VARCHAR},
+      cost_item = #{costItem,jdbcType=DECIMAL},
+      is_tax = #{isTax,jdbcType=CHAR},
+      cost_tax = #{costTax,jdbcType=DECIMAL},
+      tax_company = #{taxCompany,jdbcType=VARCHAR},
+      is_protect = #{isProtect,jdbcType=CHAR},
+      cost_protect = #{costProtect,jdbcType=DECIMAL},
+      cost_payment = #{costPayment,jdbcType=DECIMAL},
+      currency = #{currency,jdbcType=VARCHAR},
+      cur_rate = #{curRate,jdbcType=DECIMAL},
+      score_u = #{scoreU,jdbcType=DECIMAL},
+      score_g = #{scoreG,jdbcType=DECIMAL},
+      discount = #{discount,jdbcType=DECIMAL},
+      pmt_goods = #{pmtGoods,jdbcType=DECIMAL},
+      pmt_order = #{pmtOrder,jdbcType=DECIMAL},
+      payed = #{payed,jdbcType=DECIMAL},
+      disabled = #{disabled,jdbcType=CHAR},
+      mark_type = #{markType,jdbcType=VARCHAR},
+      cost_freight = #{costFreight,jdbcType=DECIMAL},
+      extend = #{extend,jdbcType=VARCHAR},
+      order_refer = #{orderRefer,jdbcType=VARCHAR},
+      source = #{source,jdbcType=CHAR},
+      bill_settle_status = #{billSettleStatus,jdbcType=CHAR},
+      bill_settle_msg = #{billSettleMsg,jdbcType=VARCHAR},
+      channel_source = #{channelSource,jdbcType=CHAR},
+      channel_type = #{channelType,jdbcType=CHAR},
+      os = #{os,jdbcType=CHAR},
+      sid = #{sid,jdbcType=VARCHAR},
+      netid = #{netid,jdbcType=VARCHAR},
+      terminalno = #{terminalno,jdbcType=VARCHAR},
+      paymentseri = #{paymentseri,jdbcType=VARCHAR},
+      billid = #{billid,jdbcType=VARCHAR},
+      is_fenrun = #{isFenrun,jdbcType=CHAR},
+      is_remoney = #{isRemoney,jdbcType=CHAR},
+      re_amount = #{reAmount,jdbcType=DECIMAL}
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </update>
+</mapper>

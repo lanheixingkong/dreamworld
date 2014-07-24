@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakala.emall.weixin.db.mysql.manager.PsamPropertyMapper" >
+  <resultMap id="BaseResultMap" type="com.lakala.emall.weixin.db.mysql.entity.PsamProperty" >
+    <id column="psam_prop_id" property="psamPropId" jdbcType="INTEGER" />
+    <result column="psam_prop_name" property="psamPropName" jdbcType="VARCHAR" />
+    <result column="psam_prop_value" property="psamPropValue" jdbcType="VARCHAR" />
+    <result column="psam_prop_value_type" property="psamPropValueType" jdbcType="VARCHAR" />
+    <result column="psam_prop_status" property="psamPropStatus" jdbcType="VARCHAR" />
+    <result column="psam_prop_parser" property="psamPropParser" jdbcType="VARCHAR" />
+    <result column="psam_id" property="psamId" jdbcType="VARCHAR" />
+    <result column="psam_prop_desc" property="psamPropDesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    psam_prop_id, psam_prop_name, psam_prop_value, psam_prop_value_type, psam_prop_status, 
+    psam_prop_parser, psam_id, psam_prop_desc
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamPropertyExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from weixin_psam_property
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>=0" >
+      limit #{limitStart} , #{limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from weixin_psam_property
+    where psam_prop_id = #{psamPropId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from weixin_psam_property
+    where psam_prop_id = #{psamPropId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamPropertyExample" >
+    delete from weixin_psam_property
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamProperty" >
+    <selectKey resultType="java.lang.Integer" keyProperty="psamPropId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into weixin_psam_property (psam_prop_name, psam_prop_value, psam_prop_value_type, 
+      psam_prop_status, psam_prop_parser, psam_id, 
+      psam_prop_desc)
+    values (#{psamPropName,jdbcType=VARCHAR}, #{psamPropValue,jdbcType=VARCHAR}, #{psamPropValueType,jdbcType=VARCHAR}, 
+      #{psamPropStatus,jdbcType=VARCHAR}, #{psamPropParser,jdbcType=VARCHAR}, #{psamId,jdbcType=VARCHAR}, 
+      #{psamPropDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamProperty" >
+    <selectKey resultType="java.lang.Integer" keyProperty="psamPropId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into weixin_psam_property
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="psamPropName != null" >
+        psam_prop_name,
+      </if>
+      <if test="psamPropValue != null" >
+        psam_prop_value,
+      </if>
+      <if test="psamPropValueType != null" >
+        psam_prop_value_type,
+      </if>
+      <if test="psamPropStatus != null" >
+        psam_prop_status,
+      </if>
+      <if test="psamPropParser != null" >
+        psam_prop_parser,
+      </if>
+      <if test="psamId != null" >
+        psam_id,
+      </if>
+      <if test="psamPropDesc != null" >
+        psam_prop_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="psamPropName != null" >
+        #{psamPropName,jdbcType=VARCHAR},
+      </if>
+      <if test="psamPropValue != null" >
+        #{psamPropValue,jdbcType=VARCHAR},
+      </if>
+      <if test="psamPropValueType != null" >
+        #{psamPropValueType,jdbcType=VARCHAR},
+      </if>
+      <if test="psamPropStatus != null" >
+        #{psamPropStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="psamPropParser != null" >
+        #{psamPropParser,jdbcType=VARCHAR},
+      </if>
+      <if test="psamId != null" >
+        #{psamId,jdbcType=VARCHAR},
+      </if>
+      <if test="psamPropDesc != null" >
+        #{psamPropDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamPropertyExample" resultType="java.lang.Integer" >
+    select count(*) from weixin_psam_property
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update weixin_psam_property
+    <set >
+      <if test="record.psamPropId != null" >
+        psam_prop_id = #{record.psamPropId,jdbcType=INTEGER},
+      </if>
+      <if test="record.psamPropName != null" >
+        psam_prop_name = #{record.psamPropName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.psamPropValue != null" >
+        psam_prop_value = #{record.psamPropValue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.psamPropValueType != null" >
+        psam_prop_value_type = #{record.psamPropValueType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.psamPropStatus != null" >
+        psam_prop_status = #{record.psamPropStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.psamPropParser != null" >
+        psam_prop_parser = #{record.psamPropParser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.psamId != null" >
+        psam_id = #{record.psamId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.psamPropDesc != null" >
+        psam_prop_desc = #{record.psamPropDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update weixin_psam_property
+    set psam_prop_id = #{record.psamPropId,jdbcType=INTEGER},
+      psam_prop_name = #{record.psamPropName,jdbcType=VARCHAR},
+      psam_prop_value = #{record.psamPropValue,jdbcType=VARCHAR},
+      psam_prop_value_type = #{record.psamPropValueType,jdbcType=VARCHAR},
+      psam_prop_status = #{record.psamPropStatus,jdbcType=VARCHAR},
+      psam_prop_parser = #{record.psamPropParser,jdbcType=VARCHAR},
+      psam_id = #{record.psamId,jdbcType=VARCHAR},
+      psam_prop_desc = #{record.psamPropDesc,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamProperty" >
+    update weixin_psam_property
+    <set >
+      <if test="psamPropName != null" >
+        psam_prop_name = #{psamPropName,jdbcType=VARCHAR},
+      </if>
+      <if test="psamPropValue != null" >
+        psam_prop_value = #{psamPropValue,jdbcType=VARCHAR},
+      </if>
+      <if test="psamPropValueType != null" >
+        psam_prop_value_type = #{psamPropValueType,jdbcType=VARCHAR},
+      </if>
+      <if test="psamPropStatus != null" >
+        psam_prop_status = #{psamPropStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="psamPropParser != null" >
+        psam_prop_parser = #{psamPropParser,jdbcType=VARCHAR},
+      </if>
+      <if test="psamId != null" >
+        psam_id = #{psamId,jdbcType=VARCHAR},
+      </if>
+      <if test="psamPropDesc != null" >
+        psam_prop_desc = #{psamPropDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where psam_prop_id = #{psamPropId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamProperty" >
+    update weixin_psam_property
+    set psam_prop_name = #{psamPropName,jdbcType=VARCHAR},
+      psam_prop_value = #{psamPropValue,jdbcType=VARCHAR},
+      psam_prop_value_type = #{psamPropValueType,jdbcType=VARCHAR},
+      psam_prop_status = #{psamPropStatus,jdbcType=VARCHAR},
+      psam_prop_parser = #{psamPropParser,jdbcType=VARCHAR},
+      psam_id = #{psamId,jdbcType=VARCHAR},
+      psam_prop_desc = #{psamPropDesc,jdbcType=VARCHAR}
+    where psam_prop_id = #{psamPropId,jdbcType=INTEGER}
+  </update>
+</mapper>
