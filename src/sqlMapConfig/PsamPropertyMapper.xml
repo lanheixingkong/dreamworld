@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lakala.emall.weixin.db.mysql.manager.PsamPropertyMapper" >
-  <resultMap id="BaseResultMap" type="com.lakala.emall.weixin.db.mysql.entity.PsamProperty" >
+<mapper namespace="com.dream.weixin.db.mysql.manager.PsamPropertyMapper" >
+  <resultMap id="BaseResultMap" type="com.dream.weixin.db.mysql.entity.PsamProperty" >
     <id column="psam_prop_id" property="psamPropId" jdbcType="INTEGER" />
     <result column="psam_prop_name" property="psamPropName" jdbcType="VARCHAR" />
     <result column="psam_prop_value" property="psamPropValue" jdbcType="VARCHAR" />
@@ -73,7 +73,7 @@
     psam_prop_id, psam_prop_name, psam_prop_value, psam_prop_value_type, psam_prop_status, 
     psam_prop_parser, psam_id, psam_prop_desc
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamPropertyExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dream.weixin.db.mysql.entity.PsamPropertyExample" >
     select
     <if test="distinct" >
       distinct
@@ -101,13 +101,13 @@
     delete from weixin_psam_property
     where psam_prop_id = #{psamPropId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamPropertyExample" >
+  <delete id="deleteByExample" parameterType="com.dream.weixin.db.mysql.entity.PsamPropertyExample" >
     delete from weixin_psam_property
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamProperty" >
+  <insert id="insert" parameterType="com.dream.weixin.db.mysql.entity.PsamProperty" >
     <selectKey resultType="java.lang.Integer" keyProperty="psamPropId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -118,7 +118,7 @@
       #{psamPropStatus,jdbcType=VARCHAR}, #{psamPropParser,jdbcType=VARCHAR}, #{psamId,jdbcType=VARCHAR}, 
       #{psamPropDesc,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamProperty" >
+  <insert id="insertSelective" parameterType="com.dream.weixin.db.mysql.entity.PsamProperty" >
     <selectKey resultType="java.lang.Integer" keyProperty="psamPropId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -170,7 +170,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamPropertyExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.dream.weixin.db.mysql.entity.PsamPropertyExample" resultType="java.lang.Integer" >
     select count(*) from weixin_psam_property
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -222,7 +222,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamProperty" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.weixin.db.mysql.entity.PsamProperty" >
     update weixin_psam_property
     <set >
       <if test="psamPropName != null" >
@@ -249,7 +249,7 @@
     </set>
     where psam_prop_id = #{psamPropId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lakala.emall.weixin.db.mysql.entity.PsamProperty" >
+  <update id="updateByPrimaryKey" parameterType="com.dream.weixin.db.mysql.entity.PsamProperty" >
     update weixin_psam_property
     set psam_prop_name = #{psamPropName,jdbcType=VARCHAR},
       psam_prop_value = #{psamPropValue,jdbcType=VARCHAR},

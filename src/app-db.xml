@@ -88,7 +88,7 @@
 
 	<aop:config>
 		<aop:pointcut id="pc"
-			expression="execution(public * com.lakala.emall.weixin.service.*.*(..))" />
+			expression="execution(public * com.dream.weixin.service.*.*(..))" />
 		<!--把事务控制在Service层 -->
 		<aop:advisor pointcut-ref="pc" advice-ref="userTxAdvice" />
 
@@ -100,7 +100,7 @@
 	</bean>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.lakala.emall.weixin.db.mysql.manager" />
+		<property name="basePackage" value="com.dream.weixin.db.mysql.manager" />
 		<!--value指定的是上面myBatis配置的id-->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
@@ -109,44 +109,44 @@
 	<!--创建数据映射器，数据映射器必须为接口 -->
 <!-- 	<bean id="openidMobileMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
-			value=" com.lakala.emall.weixin.db.mysql.manager.OpenidMobileMapper" />
+			value=" com.dream.weixin.db.mysql.manager.OpenidMobileMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 
  
 	<bean id="smsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
-			value=" com.lakala.emall.weixin.db.mysql.manager.SmsMapper" />
+			value=" com.dream.weixin.db.mysql.manager.SmsMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
 	<bean id="psamPropertyMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
-			value=" com.lakala.emall.weixin.db.mysql.manager.PsamPropertyMapper" />
+			value=" com.dream.weixin.db.mysql.manager.PsamPropertyMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
 	<bean id="psamPropertyInsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
-			value=" com.lakala.emall.weixin.db.mysql.manager.PsamPropertyInsMapper" />
+			value=" com.dream.weixin.db.mysql.manager.PsamPropertyInsMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
 	<bean id="b2cOrderMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
-			value=" com.lakala.emall.weixin.db.mysql.manager.B2cOrderMapper" />
+			value=" com.dream.weixin.db.mysql.manager.B2cOrderMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
 	<bean id="openidPsamMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
-			value=" com.lakala.emall.weixin.db.mysql.manager.OpenidPsamMapper" />
+			value=" com.dream.weixin.db.mysql.manager.OpenidPsamMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
 	<bean id="termDeviceMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface"
-			value=" com.lakala.emall.weixin.db.mysql.manager.TermDeviceMapper" />
+			value=" com.dream.weixin.db.mysql.manager.TermDeviceMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean> -->
 	

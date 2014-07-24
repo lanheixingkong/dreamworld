@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lakala.emall.weixin.db.mysql.manager.OpenidMobileMapper" >
-  <resultMap id="BaseResultMap" type="com.lakala.emall.weixin.db.mysql.entity.OpenidMobile" >
+<mapper namespace="com.dream.weixin.db.mysql.manager.OpenidMobileMapper" >
+  <resultMap id="BaseResultMap" type="com.dream.weixin.db.mysql.entity.OpenidMobile" >
     <id column="mobile_open_id" property="mobileOpenId" jdbcType="INTEGER" />
     <result column="mobile" property="mobile" jdbcType="VARCHAR" />
     <result column="openid" property="openid" jdbcType="VARCHAR" />
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List" >
     mobile_open_id, mobile, openid, mo_create_time, mo_update_time, mo_status, mo_type
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidMobileExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dream.weixin.db.mysql.entity.OpenidMobileExample" >
     select
     <if test="distinct" >
       distinct
@@ -99,13 +99,13 @@
     delete from sdb_b2c_openid_mobile
     where mobile_open_id = #{mobileOpenId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidMobileExample" >
+  <delete id="deleteByExample" parameterType="com.dream.weixin.db.mysql.entity.OpenidMobileExample" >
     delete from sdb_b2c_openid_mobile
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidMobile" >
+  <insert id="insert" parameterType="com.dream.weixin.db.mysql.entity.OpenidMobile" >
     <selectKey resultType="java.lang.Integer" keyProperty="mobileOpenId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -116,7 +116,7 @@
       #{moUpdateTime,jdbcType=TIMESTAMP}, #{moStatus,jdbcType=CHAR}, #{moType,jdbcType=CHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidMobile" >
+  <insert id="insertSelective" parameterType="com.dream.weixin.db.mysql.entity.OpenidMobile" >
     <selectKey resultType="java.lang.Integer" keyProperty="mobileOpenId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -162,7 +162,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidMobileExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.dream.weixin.db.mysql.entity.OpenidMobileExample" resultType="java.lang.Integer" >
     select count(*) from sdb_b2c_openid_mobile
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -210,7 +210,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidMobile" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.weixin.db.mysql.entity.OpenidMobile" >
     update sdb_b2c_openid_mobile
     <set >
       <if test="mobile != null" >
@@ -234,7 +234,7 @@
     </set>
     where mobile_open_id = #{mobileOpenId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidMobile" >
+  <update id="updateByPrimaryKey" parameterType="com.dream.weixin.db.mysql.entity.OpenidMobile" >
     update sdb_b2c_openid_mobile
     set mobile = #{mobile,jdbcType=VARCHAR},
       openid = #{openid,jdbcType=VARCHAR},

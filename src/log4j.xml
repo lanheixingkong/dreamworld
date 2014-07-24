@@ -29,14 +29,14 @@
 
 
 	<!-- Application Loggers -->
-	<logger name="com.lakala.emall.weixin">
+	<logger name="com.dream.weixin">
 		<level value="info" />
 	</logger>
-	<logger name="com.lakala.emall.weixin.controller">
+	<logger name="com.dream.weixin.controller">
 		<level value="info" />
 	</logger>
   
-    <logger name="com.lakala.emall.weixin.interceptor" additivity="true">    
+    <logger name="com.dream.weixin.interceptor" additivity="true">    
         <priority value ="info"/>      
         <appender-ref ref="payAppender" />      
     </logger>

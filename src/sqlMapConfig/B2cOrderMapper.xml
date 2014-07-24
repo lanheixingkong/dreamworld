@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lakala.emall.weixin.db.mysql.manager.B2cOrderMapper" >
-  <resultMap id="BaseResultMap" type="com.lakala.emall.weixin.db.mysql.entity.B2cOrder" >
+<mapper namespace="com.dream.weixin.db.mysql.manager.B2cOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.dream.weixin.db.mysql.entity.B2cOrder" >
     <id column="order_id" property="orderId" jdbcType="BIGINT" />
     <result column="net_no" property="netNo" jdbcType="VARCHAR" />
     <result column="gysids" property="gysids" jdbcType="VARCHAR" />
@@ -76,7 +76,7 @@
     <result column="is_remoney" property="isRemoney" jdbcType="CHAR" />
     <result column="re_amount" property="reAmount" jdbcType="DECIMAL" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.lakala.emall.weixin.db.mysql.entity.B2cOrderWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.dream.weixin.db.mysql.entity.B2cOrderWithBLOBs" extends="BaseResultMap" >
     <result column="tostr" property="tostr" jdbcType="LONGVARCHAR" />
     <result column="ship_addr" property="shipAddr" jdbcType="LONGVARCHAR" />
     <result column="memo" property="memo" jdbcType="LONGVARCHAR" />
@@ -156,7 +156,7 @@
   <sql id="Blob_Column_List" >
     tostr, ship_addr, memo, mark_text, addon
   </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderExample" >
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.dream.weixin.db.mysql.entity.B2cOrderExample" >
     select
     <if test="distinct" >
       distinct
@@ -173,7 +173,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dream.weixin.db.mysql.entity.B2cOrderExample" >
     select
     <if test="distinct" >
       distinct
@@ -203,13 +203,13 @@
     delete from sdb_b2c_orders
     where order_id = #{orderId,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderExample" >
+  <delete id="deleteByExample" parameterType="com.dream.weixin.db.mysql.entity.B2cOrderExample" >
     delete from sdb_b2c_orders
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
+  <insert id="insert" parameterType="com.dream.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
     <selectKey resultType="java.lang.Long" keyProperty="orderId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -266,7 +266,7 @@
       #{shipAddr,jdbcType=LONGVARCHAR}, #{memo,jdbcType=LONGVARCHAR}, #{markText,jdbcType=LONGVARCHAR}, 
       #{addon,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.dream.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
     <selectKey resultType="java.lang.Long" keyProperty="orderId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -738,7 +738,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.dream.weixin.db.mysql.entity.B2cOrderExample" resultType="java.lang.Integer" >
     select count(*) from sdb_b2c_orders
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -1149,7 +1149,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
     update sdb_b2c_orders
     <set >
       <if test="netNo != null" >
@@ -1386,7 +1386,7 @@
     </set>
     where order_id = #{orderId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.dream.weixin.db.mysql.entity.B2cOrderWithBLOBs" >
     update sdb_b2c_orders
     set net_no = #{netNo,jdbcType=VARCHAR},
       gysids = #{gysids,jdbcType=VARCHAR},
@@ -1467,7 +1467,7 @@
       addon = #{addon,jdbcType=LONGVARCHAR}
     where order_id = #{orderId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lakala.emall.weixin.db.mysql.entity.B2cOrder" >
+  <update id="updateByPrimaryKey" parameterType="com.dream.weixin.db.mysql.entity.B2cOrder" >
     update sdb_b2c_orders
     set net_no = #{netNo,jdbcType=VARCHAR},
       gysids = #{gysids,jdbcType=VARCHAR},

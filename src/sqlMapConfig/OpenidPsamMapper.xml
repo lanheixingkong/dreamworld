@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lakala.emall.weixin.db.mysql.manager.OpenidPsamMapper" >
-  <resultMap id="BaseResultMap" type="com.lakala.emall.weixin.db.mysql.entity.OpenidPsam" >
+<mapper namespace="com.dream.weixin.db.mysql.manager.OpenidPsamMapper" >
+  <resultMap id="BaseResultMap" type="com.dream.weixin.db.mysql.entity.OpenidPsam" >
     <id column="openid_psam_id" property="openidPsamId" jdbcType="INTEGER" />
     <result column="op_psam" property="opPsam" jdbcType="VARCHAR" />
     <result column="op_openid" property="opOpenid" jdbcType="VARCHAR" />
@@ -78,7 +78,7 @@
     openid_psam_id, op_psam, op_openid, op_gem_code, op_create_time, op_update_time, 
     op_invalid_time, op_status, op_type, op_gem_code_status, op_gem_grade, qq_code, other_one
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsamExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dream.weixin.db.mysql.entity.OpenidPsamExample" >
     select
     <if test="distinct" >
       distinct
@@ -106,13 +106,13 @@
     delete from weixin_openid_psam
     where openid_psam_id = #{openidPsamId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsamExample" >
+  <delete id="deleteByExample" parameterType="com.dream.weixin.db.mysql.entity.OpenidPsamExample" >
     delete from weixin_openid_psam
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsam" >
+  <insert id="insert" parameterType="com.dream.weixin.db.mysql.entity.OpenidPsam" >
     <selectKey resultType="java.lang.Integer" keyProperty="openidPsamId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -127,7 +127,7 @@
       #{opGemGrade,jdbcType=CHAR}, #{qqCode,jdbcType=VARCHAR}, #{otherOne,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsam" >
+  <insert id="insertSelective" parameterType="com.dream.weixin.db.mysql.entity.OpenidPsam" >
     <selectKey resultType="java.lang.Integer" keyProperty="openidPsamId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -209,7 +209,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsamExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.dream.weixin.db.mysql.entity.OpenidPsamExample" resultType="java.lang.Integer" >
     select count(*) from weixin_openid_psam
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -281,7 +281,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsam" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.weixin.db.mysql.entity.OpenidPsam" >
     update weixin_openid_psam
     <set >
       <if test="opPsam != null" >
@@ -323,7 +323,7 @@
     </set>
     where openid_psam_id = #{openidPsamId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lakala.emall.weixin.db.mysql.entity.OpenidPsam" >
+  <update id="updateByPrimaryKey" parameterType="com.dream.weixin.db.mysql.entity.OpenidPsam" >
     update weixin_openid_psam
     set op_psam = #{opPsam,jdbcType=VARCHAR},
       op_openid = #{opOpenid,jdbcType=VARCHAR},

@@ -12,7 +12,7 @@
 		">
 	<!-- -->
 
-	<context:component-scan base-package="com.lakala.emall.weixin" />
+	<context:component-scan base-package="com.dream.weixin" />
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
 		infrastructure -->
@@ -56,15 +56,15 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/*/*.action" />
-			<bean class="com.lakala.emall.weixin.interceptor.ActionInterceptor" />
+			<bean class="com.dream.weixin.interceptor.ActionInterceptor" />
 		</mvc:interceptor>
 				<mvc:interceptor>
 			<mvc:mapping path="/*/*.action" />
-			<bean class="com.lakala.emall.weixin.interceptor.AuthInterceptor" />
+			<bean class="com.dream.weixin.interceptor.AuthInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="com.lakala.emall.weixin.interceptor.ExceptionInterceptor" />
+			<bean class="com.dream.weixin.interceptor.ExceptionInterceptor" />
 		</mvc:interceptor>
 
 	</mvc:interceptors>
@@ -74,10 +74,10 @@
 	<!-- 配置切面 -->
 	<!--配置com.spring.service包下所有类或接口的所有方法 <aop:config> <aop:aspect id="TestAspect" 
 		ref="aspectBean"> <aop:pointcut id="businessService" expression="execution(public 
-		* com.lakala.emall.weixin.*.*.*(..))" /> <aop:before pointcut-ref="businessService" 
+		* com.dream.weixin.*.*.*(..))" /> <aop:before pointcut-ref="businessService" 
 		method="doBefore" /> <aop:after pointcut-ref="businessService" method="doAfter" 
 		/> <aop:around pointcut-ref="businessService" method="doAround" /> <aop:after-throwing 
 		pointcut-ref="businessService" method="doThrowing" throwing="ex" /> </aop:aspect> 
-		</aop:config> <bean id="aspectBean" class="com.lakala.emall.weixin.common.AspectPoint" 
+		</aop:config> <bean id="aspectBean" class="com.dream.weixin.common.AspectPoint" 
 		/> -->
 </beans>
