@@ -8,7 +8,7 @@ public class Business {
 	
 	public static final String BASEURL = "http://106.187.89.65";
 	
-	public static final String SERVLETURL = "/emall_weixin";
+	public static final String SERVLETURL = "";
 	
 	public static final String RESOURCESURL = "/resources";
 	//business 商家 customer 用户 
